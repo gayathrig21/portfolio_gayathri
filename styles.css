@@ -180,3 +180,6 @@ body::before {
 .portrait-hex-clay { width: 72%; bottom: -15%; left: -22%; background: #c97952; opacity: .68; transform: rotate(-12deg); }
 .portrait-hex-soft { width: 43%; top: -9%; left: -11%; background: #efbc32; opacity: .32; transform: rotate(-8deg); }
 @media (max-width: 600px) { .portrait-scene { width: 210px; margin-block: 20px 30px; } }
+/* Matching hero buttons for enterprise and independent work. */
+
+.hero-actions > .hero-action { width: 210px; min-height: 44px; justify-content: space-between; }
