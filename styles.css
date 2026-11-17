@@ -1,5 +1,5 @@
 /* 1. Design tokens: change these values to make the site your own. */
-:root { --bg: #f0f5f8; --ink: #213342; --muted: #5c6c76; --line: #d4dfe6; --accent: #c7f36b; --radius: 18px; }
+:root { --bg: #fff1e6; --ink: #213342; --muted: #5c6c76; --line: #d4dfe6; --accent: #c7f36b; --radius: 18px; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; }
