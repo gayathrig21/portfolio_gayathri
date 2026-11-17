@@ -172,3 +172,11 @@ body::before {
   .hero-bottom > p { flex: auto; width: 100%; max-width: none; }
   .hero-bottom > .hero-actions { align-self: flex-start; }
 }
+/* Large hexagons sit behind the portrait, outside its circular crop. */
+.portrait-scene { position: relative; isolation: isolate; width: 100%; max-width: 250px; aspect-ratio: 1; justify-self: center; }
+.portrait-scene .profile-photo { position: relative; z-index: 1; width: 100%; }
+.portrait-hex { position: absolute; z-index: 0; pointer-events: none; aspect-ratio: .866; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.portrait-hex-gold { width: 88%; top: -12%; right: -14%; background: #efbc32; opacity: .75; transform: rotate(10deg); }
+.portrait-hex-clay { width: 72%; bottom: -15%; left: -22%; background: #c97952; opacity: .68; transform: rotate(-12deg); }
+.portrait-hex-soft { width: 43%; top: -9%; left: -11%; background: #efbc32; opacity: .32; transform: rotate(-8deg); }
+@media (max-width: 600px) { .portrait-scene { width: 210px; margin-block: 20px 30px; } }
