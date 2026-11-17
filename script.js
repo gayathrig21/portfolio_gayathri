@@ -1,31 +1,26 @@
-// Select existing HTML elements, then listen for a visitor's interaction.
-const filterGroup = document.querySelector('.filters');
-const filterButtons = document.querySelectorAll('[data-filter]');
-const projectCards = document.querySelectorAll('[data-category]');
-const filterStatus = document.querySelector('#filter-status');
-
-// Without JavaScript, all projects remain visible and the filters stay hidden.
-filterGroup.hidden = false;
-
-filterButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const category = button.dataset.filter;
-    let visibleCount = 0;
-
-    filterButtons.forEach((filter) => {
-      const selected = filter === button;
-      filter.classList.toggle('active', selected);
-      filter.setAttribute('aria-pressed', String(selected));
+// Each filter group controls only the cards in its own section.
+document.querySelectorAll('.filters').forEach(group => {
+  const section = group.closest('section');
+  const buttons = [...group.querySelectorAll('[data-filter]')];
+  const cards = [...section.querySelectorAll('.project-card[data-category]')];
+  const status = section.querySelector('[role="status"]');
+  group.hidden = false;
+  buttons.forEach(button => button.addEventListener('click', () => {
+    buttons.forEach(item => {
+      const selected = item === button;
+      item.classList.toggle('active', selected);
+      item.setAttribute('aria-pressed', String(selected));
     });
-
-    projectCards.forEach((card) => {
-      const matches = category === 'all' || card.dataset.category === category;
-      card.hidden = !matches;
-      if (matches) visibleCount += 1;
+    let visible = 0;
+    cards.forEach(card => {
+      card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter;
+      if (!card.hidden) visible++;
     });
-
-    filterStatus.textContent = `${visibleCount} ${visibleCount === 1 ? 'project' : 'projects'} shown.`;
-  });
+    if (status) {
+      const noun = section.id === 'case-studies' ? 'case study' : 'project';
+      status.textContent = visible + ' ' + (visible === 1 ? noun : noun === 'case study' ? 'case studies' : 'projects') + ' shown.';
+    }
+  }));
 });
-
-document.querySelector('#year').textContent = new Date().getFullYear();
+const year = document.querySelector('#year');
+if (year) year.textContent = new Date().getFullYear();

@@ -1,0 +1,6 @@
+{
+  "request_id": "synthetic-demo-001",
+  "expected_records": 3,
+  "observed_records": 2,
+  "missing_inputs": ["synthetic-source-c"]
+}
