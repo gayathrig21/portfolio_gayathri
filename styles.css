@@ -159,3 +159,16 @@ body::before {
 @media(max-width:600px){.site-header:has(.header-resume) nav{margin-left:0}.header-resume{margin-left:0}.case-page h1{font-size:36px}.case-lead{font-size:16px}.case-section h2{font-size:26px}.case-toc{font-size:11px;gap:10px 17px}.case-actions{flex-direction:column;align-items:flex-start}}
 
 .mini-architecture svg{height:118px}.mini-architecture svg text{font-size:12px}.mini-architecture svg text:last-child{display:block}
+
+/* Keep case labels in their card flow and give the introduction room to read. */
+.case-art { height: auto; min-height: 220px; display: flex; flex-direction: column; padding: 18px; }
+.case-art .art-label { position: static; display: block; margin: 0; }
+.case-art .mini-architecture { margin: 12px 0 0; }
+.case-art .case-status { position: static; display: block; margin-top: auto; padding-top: 8px; }
+.hero-bottom { align-items: flex-start; flex-wrap: wrap; }
+.hero-bottom > p { flex: 1 1 580px; max-width: 780px; }
+.hero-bottom > .hero-actions { flex: 0 0 auto; align-self: flex-end; }
+@media (max-width: 600px) {
+  .hero-bottom > p { flex: auto; width: 100%; max-width: none; }
+  .hero-bottom > .hero-actions { align-self: flex-start; }
+}
